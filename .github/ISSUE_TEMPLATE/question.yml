@@ -1,0 +1,81 @@
+name: Question
+description: Ask a question about using the RAG tutorial
+title: "[Question]: "
+labels: ["question", "help wanted"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your question! 🤔 Please search existing issues first to see if your question has already been answered.
+        
+  - type: textarea
+    id: question
+    attributes:
+      label: What's your question?
+      description: Please be as specific as possible
+      placeholder: "How do I..."
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: category
+    attributes:
+      label: Question Category
+      options:
+        - Setup and Installation
+        - Basic RAG Implementation
+        - Advanced Features
+        - Model Configuration
+        - Performance Optimization
+        - Error Troubleshooting
+        - Best Practices
+        - Production Deployment
+        - API Integration
+        - Other
+    validations:
+      required: true
+      
+  - type: textarea
+    id: what-tried
+    attributes:
+      label: What have you tried?
+      description: Please describe what you've already attempted
+      placeholder: "I tried..."
+      
+  - type: textarea
+    id: expected-outcome
+    attributes:
+      label: What outcome are you hoping for?
+      description: Describe what you're trying to achieve
+      placeholder: "I want to..."
+      
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: |
+        Please provide any additional context that might be helpful:
+        - Your use case
+        - Environment details
+        - Relevant code snippets
+        - Error messages (if any)
+      render: markdown
+      
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have searched existing issues and discussions
+        - label: I have read the relevant documentation
+        - label: I have provided enough context for others to understand my question
+          required: true
+          
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our Code of Conduct
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
