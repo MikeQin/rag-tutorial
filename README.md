@@ -103,6 +103,43 @@ Product Installation Guide
 3. **ChromaDB Issues**: Delete `chroma_db/` folder and restart
 4. **Memory Issues**: Reduce chunk size in DocumentProcessor
 
+## ❓ Frequently Asked Questions
+
+### Why do we use OpenAI library with OpenRouter?
+
+**The `openai` library is intentionally required** for this tutorial because:
+
+✅ **OpenRouter Compatibility**: OpenRouter is designed to work seamlessly with the OpenAI Python client  
+✅ **Industry Standard**: Same interface used in production applications  
+✅ **Cost Effective**: OpenRouter provides affordable access to multiple models (GPT, Claude, Llama)  
+✅ **Educational Value**: Students learn real-world API patterns  
+✅ **Easy Migration**: Can switch between OpenAI and OpenRouter with minimal code changes  
+
+**Code Pattern**:
+```python
+# Uses OpenAI client but points to OpenRouter
+client = openai.OpenAI(
+    base_url="https://openrouter.ai/api/v1",  # OpenRouter endpoint
+    api_key=openrouter_api_key,              # OpenRouter API key
+)
+```
+
+### Can I use other LLM backends?
+
+Yes! While this tutorial focuses on OpenRouter for simplicity, you can extend it:
+- **Direct OpenAI**: Change base_url to OpenAI's endpoint
+- **Local Models**: Use Ollama, LM Studio, or similar
+- **Other APIs**: Anthropic, Cohere, etc.
+
+See `backend_options.md` for implementation examples.
+
+### Why OpenRouter over direct OpenAI?
+
+- 💰 **Cost**: Often cheaper than direct OpenAI API
+- 🔄 **Model Variety**: Access GPT, Claude, Llama, and more through one API
+- 🛡️ **Reliability**: Built-in failover between model providers
+- 📊 **Transparency**: Clear pricing and usage tracking
+
 ## Next Steps
 
 - Try with your own documents
